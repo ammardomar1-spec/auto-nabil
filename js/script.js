@@ -3,9 +3,9 @@
  * معالجة الفورم والتحقق والإرسال إلى Google Apps Script
  */
 
-// ضع رابط الـ Web App الخاص بـ Google Apps Script هنا بعد نشره
-// مثال: "https://script.google.com/macros/s/AKfycbx.../exec"
-const GOOGLE_SCRIPT_URL = ""; 
+// رابط الـ Web App الخاص بـ Google Apps Script مشفر (Base64) لحمايته
+const _0x4a = "aHR0cHM6Ly9zY3JpcHQuZ29vZ2xlLmNvbS9tYWNyb3Mvcy9BS2Z5Y2J4dFFOd1I1TVN6ZS16Xy0zQWZBUnE4YjB0cDdlWVNaWUNsNG90aVd5ZzFaNEdCSEtwdzlqb2E2QkNPVHdzdDFSQ2JiZy9leGVj";
+const GOOGLE_SCRIPT_URL = atob(_0x4a); 
 
 // أرقام هواتف المعرض للتواصل والواتساب
 const PRIMARY_WHATSAPP = "201201298587"; 
