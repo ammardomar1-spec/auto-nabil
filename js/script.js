@@ -8,7 +8,7 @@ const _0x4a = "aHR0cHM6Ly9zY3JpcHQuZ29vZ2xlLmNvbS9tYWNyb3Mvcy9BS2Z5Y2J4dFFOd1I1T
 const GOOGLE_SCRIPT_URL = atob(_0x4a); 
 
 // أرقام هواتف المعرض للتواصل والواتساب
-const PRIMARY_WHATSAPP = "201201298587"; 
+const PRIMARY_WHATSAPP = "201095178455"; 
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("carRequestForm");
