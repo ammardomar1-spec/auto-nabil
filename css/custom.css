@@ -1,117 +1,366 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
+
+/* ==========================================================================
+   Auto Mohamed Nabil - Luxury Automotive Theme
+   ========================================================================== */
 
 :root {
-  --primary: #f59e0b; /* Amber / Gold Automotive color */
-  --primary-hover: #d97706;
-  --secondary: #2563eb;
-  --dark-bg: #0f172a;
-  --card-bg: #1e293b;
-  --card-border: #334155;
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
+  --color-void: #06080D;
+  --color-bg-base: #0B0F17;
+  --color-bg-subtle: #111622;
+  --color-surface-1: rgba(18, 24, 38, 0.75);
+  --color-surface-2: rgba(24, 33, 50, 0.88);
+  --color-surface-3: #1F2B40;
+  
+  --border-hairline: rgba(255, 255, 255, 0.08);
+  --border-rim: rgba(255, 255, 255, 0.15);
+  
+  --gold-primary: #F59E0B;
+  --gold-metallic: #E5A93C;
+  --gold-light: #FDE68A;
+  --gold-deep: #B45309;
+  
+  --metal-silver: #CBD5E1;
+  --text-main: #F8FAFC;
+  --text-muted: #94A3B8;
+  --text-subtle: #64748B;
 }
 
 * {
   box-sizing: border-box;
-  font-family: 'Cairo', sans-serif;
+  font-family: 'Cairo', system-ui, -apple-system, sans-serif;
+  letter-spacing: 0; /* Strict Arabic rule: maintain cursive ligature integrity */
   -webkit-tap-highlight-color: transparent;
 }
 
 html {
   scroll-behavior: smooth;
+  background-color: var(--color-void);
 }
 
 body {
-  background-color: #0b0f19;
+  background-color: var(--color-bg-base);
   color: var(--text-main);
   overflow-x: hidden;
+  line-height: 1.75;
 }
 
-/* Custom glowing badge & effects */
-.glow-primary {
-  box-shadow: 0 0 25px rgba(245, 158, 11, 0.35);
+/* ==========================================================================
+   Cinematic Lighting & Backgrounds
+   ========================================================================== */
+
+.hero-spotlight {
+  background: radial-gradient(circle at 50% -20%, rgba(245, 158, 11, 0.18) 0%, rgba(11, 15, 23, 0) 70%);
 }
 
-.glow-subtle {
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+.hero-vignette {
+  background: radial-gradient(ellipse at center, transparent 35%, #06080D 95%);
 }
 
-/* Pulse animation for CTA button */
-@keyframes cta-pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
-  }
-  70% {
-    box-shadow: 0 0 0 16px rgba(245, 158, 11, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
-  }
+.hero-beam {
+  background: linear-gradient(90deg, transparent 0%, rgba(245, 158, 11, 0.25) 50%, transparent 100%);
 }
 
-.animate-cta-pulse {
-  animation: cta-pulse 2.2s infinite;
+/* Subtle Carbon Fiber / Mesh Pattern */
+.bg-carbon-pattern {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
 }
 
-/* Glassmorphism Card Style */
-.glass-card {
-  background: rgba(30, 41, 59, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+/* ==========================================================================
+   Machined Luxury Glass Cards & Surfaces
+   ========================================================================== */
+
+.luxury-card {
+  background: var(--color-surface-1);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid var(--border-hairline);
+  box-shadow: 
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.12),
+    0 20px 40px -15px rgba(0, 0, 0, 0.65);
+  border-radius: 1.25rem;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.glass-card-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.glass-card-hover:hover {
+.luxury-card-hover:hover {
   transform: translateY(-4px);
-  border-color: rgba(245, 158, 11, 0.4);
-  box-shadow: 0 15px 30px -10px rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.35);
+  box-shadow: 
+    inset 0 1px 0 0 rgba(253, 230, 138, 0.25),
+    0 25px 50px -12px rgba(0, 0, 0, 0.8),
+    0 0 30px -5px rgba(245, 158, 11, 0.12);
 }
 
-/* Form inputs styling */
-.form-input-custom {
-  background-color: #131d2e;
-  border: 1.5px solid #2a374a;
-  color: #f8fafc;
-  transition: all 0.2s ease-in-out;
+/* ==========================================================================
+   Refined Form Inputs
+   ========================================================================== */
+
+.form-input-luxury {
+  background-color: #0E1422;
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  color: #F8FAFC;
+  transition: all 0.25s ease;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-.form-input-custom:focus {
-  border-color: #f59e0b;
-  background-color: #172338;
+.form-input-luxury:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.form-input-luxury:focus {
+  background-color: #121929;
+  border-color: var(--gold-primary);
   outline: none;
-  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+  box-shadow: 
+    inset 0 2px 4px rgba(0, 0, 0, 0.3),
+    0 0 0 3px rgba(245, 158, 11, 0.2);
+}
+
+.form-input-luxury::placeholder {
+  color: #64748B;
 }
 
 /* Radio Card Pill */
-.radio-pill-label {
+.radio-luxury-pill {
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border: 1.5px solid rgba(255, 255, 255, 0.09);
+  background-color: #0E1422;
+  color: #94A3B8;
+}
+
+.radio-luxury-pill:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #F1F5F9;
+}
+
+input[type="radio"]:checked + .radio-luxury-pill {
+  border-color: var(--gold-primary);
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(180, 83, 9, 0.2) 100%);
+  color: #FDE68A;
+  font-weight: 700;
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.18);
+}
+
+input[type="radio"]:focus-visible + .radio-luxury-pill {
+  outline: 2px solid var(--gold-primary);
+  outline-offset: 2px;
+}
+
+/* Quick Model Chips */
+.quick-chip {
   cursor: pointer;
   transition: all 0.2s ease;
-  border: 1.5px solid #2a374a;
-  background-color: #131d2e;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #CBD5E1;
 }
 
-input[type="radio"]:checked + .radio-pill-label {
-  border-color: #f59e0b;
+.quick-chip:hover {
   background-color: rgba(245, 158, 11, 0.15);
-  color: #fbbf24;
-  font-weight: 700;
+  border-color: rgba(245, 158, 11, 0.4);
+  color: #FDE68A;
+  transform: translateY(-1px);
 }
 
-/* Custom Scrollbar */
+/* ==========================================================================
+   Buttons & CTAs
+   ========================================================================== */
+
+.btn-luxury-gold {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 50%, #D97706 100%);
+  color: #06080D;
+  font-weight: 900;
+  border-top: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 
+    0 12px 28px -6px rgba(245, 158, 11, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-luxury-gold:hover {
+  background: linear-gradient(135deg, #FDE68A 0%, #FBBF24 50%, #F59E0B 100%);
+  box-shadow: 
+    0 18px 36px -8px rgba(245, 158, 11, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+.btn-luxury-gold:active {
+  transform: scale(0.98);
+}
+
+/* Subtle Shimmer Animation */
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: skewX(-25deg);
+  transition: 0.75s;
+}
+
+.btn-shimmer:hover::after {
+  left: 200%;
+}
+
+.btn-ghost-metal {
+  background: rgba(18, 24, 38, 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #E2E8F0;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+}
+
+.btn-ghost-metal:hover {
+  background: rgba(30, 41, 59, 0.85);
+  border-color: rgba(245, 158, 11, 0.4);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+/* Floating WhatsApp Badge */
+.whatsapp-floating {
+  box-shadow: 
+    0 10px 25px -5px rgba(16, 185, 129, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.15);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.whatsapp-floating:hover {
+  transform: scale(1.06) translateY(-2px);
+  box-shadow: 
+    0 15px 35px -5px rgba(16, 185, 129, 0.55),
+    0 0 0 2px rgba(16, 185, 129, 0.4);
+}
+
+/* ==========================================================================
+   Accessibility & Refined Scrollbar
+   ========================================================================== */
+
+:focus-visible {
+  outline: 2px solid var(--gold-primary);
+  outline-offset: 3px;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0b0f19;
+  background: #06080D;
 }
 ::-webkit-scrollbar-thumb {
-  background: #334155;
+  background: #1F2B40;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #f59e0b;
+  background: var(--gold-primary);
+}
+
+/* ==========================================================================
+   Carousels (Videos + Photos)
+   ========================================================================== */
+
+.carousel-track {
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
+}
+.carousel-track:active {
+  cursor: grabbing;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-nav-btn {
+  background: rgba(18, 24, 38, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #FDE68A;
+  box-shadow: 0 10px 25px -8px rgba(0, 0, 0, 0.7);
+  transition: all 0.25s ease;
+}
+.carousel-nav-btn:hover {
+  background: #F59E0B;
+  color: #06080D;
+  border-color: #F59E0B;
+  transform: translateY(-50%) scale(1.06);
+}
+.carousel-nav-btn:active {
+  transform: translateY(-50%) scale(0.96);
+}
+
+.carousel-card {
+  scroll-snap-align: start;
+  flex: 0 0 82%;
+}
+@media (min-width: 640px) {
+  .carousel-card {
+    flex: 0 0 calc(50% - 0.5rem);
+  }
+}
+@media (min-width: 1024px) {
+  .carousel-card-video {
+    flex: 0 0 calc(33.333% - 0.75rem);
+  }
+  .carousel-card-photo {
+    flex: 0 0 calc(33.333% - 0.75rem);
+  }
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: all 0.25s ease;
+  padding: 0;
+  cursor: pointer;
+}
+.carousel-dot.active {
+  width: 28px;
+  background: linear-gradient(135deg, #FBBF24, #F59E0B);
+  border-color: rgba(245, 158, 11, 0.6);
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
+}
+
+.video-thumb-zoom img {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.video-thumb-zoom:hover img {
+  transform: scale(1.06);
+}
+.photo-zoom img {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.photo-zoom:hover img {
+  transform: scale(1.05);
+}
+
+/* Mobile safe area utility */
+.pb-safe {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
